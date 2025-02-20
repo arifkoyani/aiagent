@@ -11,7 +11,8 @@ export default function Sidebar() {
   const { isMobileNavOpen, setIsMobileNavOpen, closeMobileNav } =
     useContext(NavigationContext);
   const createChat = useMutation(api.newchat.createChat);
-
+  const Chats = useQuery(api.newchat.getChats);
+  console.log(Chats,"this is chats")
 
   useEffect(() => {
     const handleResize = () => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "./ConvexClientProvider";
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import {
   ClerkProvider,
   SignInButton,
@@ -32,16 +33,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+          <ConvexAuthNextjsServerProvider>
+     
         <ClerkProvider>
+       
 
+      
        <ConvexClientProvider>
+   
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
        {children}
       </body>
       </ConvexClientProvider>
+     
       </ClerkProvider>
+             
+      </ConvexAuthNextjsServerProvider>
 
     </html>
   );
