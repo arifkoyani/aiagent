@@ -39,14 +39,16 @@ export default function RootLayout({
        
 
       
-       <ConvexClientProvider>
+     
    
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+          <ConvexClientProvider>
        {children}
+       </ConvexClientProvider>
       </body>
-      </ConvexClientProvider>
+   
      
       </ClerkProvider>
              

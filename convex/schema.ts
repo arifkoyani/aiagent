@@ -1,11 +1,15 @@
 import { defineSchema, defineTable } from "convex/server";
 import { authTables } from "@convex-dev/auth/server";
+import { v } from "convex/values";
 
 const schema = defineSchema({
   ...authTables,
-  users: defineTable({ /* user fields */ }),
-  newchat: defineTable({ /* chat fields */ }) 
-  // Your other tables...
+
+  newchat: defineTable({
+    title: v.string(),
+    userId: v.string(),
+    createdAt: v.number(),
+  }).index("by_user", ["userId"]),
 });
 
 export default schema;
