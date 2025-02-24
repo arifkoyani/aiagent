@@ -5,12 +5,13 @@ import { useContext, useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { Plus } from "lucide-react";
 import { useMutation, useQuery } from "convex/react";
+import { useRouter } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 
 export default function Sidebar() {
   const { isMobileNavOpen, setIsMobileNavOpen, closeMobileNav } =
     useContext(NavigationContext);
-  const createChat = useMutation(api.newchat.createChat);
+    const createChat = useMutation(api.newchat.createChat);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,7 +24,9 @@ export default function Sidebar() {
 
   const AddNewChat = async () => {
     try {
-      await createChat({ title: "New chat" });
+      const chatId= await createChat({ title: "New chat" });
+      console.log(chatId,"this is id")
+
     } catch (error) {
       console.log(error);
     }
