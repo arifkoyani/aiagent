@@ -4,6 +4,7 @@ import { NavigationContext } from "../../context/NavigationContext";
 import { useContext } from "react";
 import { Menu } from 'lucide-react';
 import { UserButton } from "@clerk/nextjs";
+import { SignIn } from "@/app/SignIn/SignIn";
 export default function MyNavbar() {
   const {isMobileNavOpen, setIsMobileNavOpen, closeMobileNav} =useContext(NavigationContext)
 
@@ -24,9 +25,10 @@ export default function MyNavbar() {
       {/* Center: Logo */}
       <span className="text-xl font-xs  text-center">Agentic AI</span>
       {/* Right: Sign In Button */}
-      <button className="px-4 py-2  text-xs rounded-lg">
-      <UserButton /> 
-      </button>
+  
+      {/* <UserButton />  */}
+      <SignIn/>
+
     </nav>
     </>
 
